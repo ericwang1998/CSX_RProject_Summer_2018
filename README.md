@@ -2,14 +2,48 @@
 July 2018 R data analysis bootcamp-style-course
 
 ## Self introduction
-* Hi my name is Eric (王奕傑), Student ID 08359906. Been trying to pick up coding on my own, but find myself like a headless chicken. Glad to be able to attend a course that can provide me with some guidance. *
+Hi my name is Eric (王奕傑), Student ID 08359906. Been trying to pick up coding on my own, but find myself like a headless chicken. Glad to be able to attend a course that can provide me with some guidance.
 
 ## Progress Report
+#Week 1
 * In class
-  1. 
-  2.
+  1. Installation and introduction
+  2. Basic R crash course on DataCamp
 
 * At home
-  1. 
-  2. 
+  1. Exercise 1
+  2. Exercise 2
 
+#Week 2
+* In class
+
+
+* At home
+
+  
+ 
+#Week 3
+* In class
+
+
+* At home
+
+  
+
+#Week 4
+* In class
+
+
+* At home
+
+#Week 5
+* In class
+
+
+* At home
+
+#Week 6
+* In class
+
+
+* At home
