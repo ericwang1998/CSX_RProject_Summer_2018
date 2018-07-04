@@ -13,8 +13,8 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   2. Getting to know GitHub
   3. Utilising R Markdown to knit into html for better visualizations
   * Files
-    + [HTML File](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/hw1.html)
-    + [R Markdown File](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/hw1.Rmd)
+    + [HTML File](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_1/hw1.html)
+    + [R Markdown File](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_1/hw1.Rmd)
 
 * At home
   1. Basic R crash course on DataCamp
