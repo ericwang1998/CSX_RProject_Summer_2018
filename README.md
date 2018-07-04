@@ -2,8 +2,8 @@
 July 2018 R data analysis bootcamp-style-course - 8N2033
 
 ## Self introduction
-Hi my name is Eric (王奕傑), Student ID 08359906. 
-I am enrolling in Singapore Management University, majoring in information systems, so this is kind of a way for me to prepare for the degree programme. 
+Hi my name is Eric (王奕傑), Student ID 08359906.  
+I am enrolling in Singapore Management University, majoring in information systems, so this is kind of a way for me to prepare for the degree programme.  
 
 Been trying to pick up coding on my own, but find myself like a headless chicken. Did some Lynda.com courses on R but still glad to be able to attend a course that can provide me with more guidance and direction.
 
