@@ -8,7 +8,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 #Introduction to R
-####假設你是一位連長的統計師，甲排的人數統計一直沒交出來，所以派你去支援。
+####__假設你是一位連長的統計師，甲排的人數統計一直沒交出來，所以派你去支援__  
+
 #####從最基本算起，班：9人加1班長，1信號兵  
 #####清算出甲班總人數
 ```{r}
@@ -32,8 +33,9 @@ print(class(sergeant_b_present))
 print(class(squad_b))
 ```
 ####另一天傳來邪惡帝國要和我們正義聯合國開戰的訊息。所以你就被派去統計兩國的戰力。
-knitr::include_graphics('C:/Users/Heidi Chen/Downloads/Cat_Sithlord.png')
+![看我的無敵光劍！](C:/Users/Heidi Chen/Downloads/Sith_lord.png)
 
+####
 
 
 
