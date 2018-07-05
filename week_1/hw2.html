@@ -125,7 +125,49 @@ $(document).ready(function () {
 </div>
 
 
-
+<div id="introduction-to-r" class="section level1">
+<h1>Introduction to R</h1>
+<div class="section level4">
+<h4>假設你是一位連長的統計師，甲排的人數統計一直沒交出來，所以派你去支援。</h4>
+<div id="911" class="section level5">
+<h5>從最基本算起，班：9人加1班長，1信號兵</h5>
+</div>
+<div class="section level5">
+<h5>清算出甲班總人數</h5>
+<pre class="r"><code>squad_a = 9 + 1 + 1
+print(squad_a)</code></pre>
+<pre><code>## [1] 11</code></pre>
+</div>
+<div id="7" class="section level5">
+<h5>甲排內分為：“甲，乙，丙班”。乙和丙班都只有7個步兵，而且丙班信号兵还没分配。清算出甲排的總人數。</h5>
+<pre class="r"><code>squad_a = 9 + 1 + 1
+squad_b = 7 + 1 + 1
+squad_c = 7 + 1
+platoon_a = squad_a + squad_b + squad_c
+print(platoon_a)</code></pre>
+<pre><code>## [1] 28</code></pre>
+</div>
+<div class="section level5">
+<h5>原本想把乙班班長叫來詢問，但他人不在，所以我們就把它記錄下來。</h5>
+<pre class="r"><code>sergeant_b_name = &quot;Jackie Wu&quot;
+sergeant_b_present = FALSE
+print(class(sergeant_b_name))</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>print(class(sergeant_b_present))</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>print(class(squad_b))</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+</div>
+</div>
+<div class="section level4">
+<h4>另一天傳來邪惡帝國要和我們正義聯合國開戰的訊息。所以你就被派去統計兩國的戰力。</h4>
+<p>knitr::include_graphics(‘C:/Users/Heidi Chen/Downloads/Cat_Sithlord.png’)</p>
+</div>
+<div id="i-am-amazed-at-how-simple-r-is-at-data-manipulation.-the-easy-creation-and-handling-of-a-vectors-dictionaries" class="section level4">
+<h4>I am amazed at how simple R is at data manipulation. The easy creation and handling of a vectors, dictionaries,</h4>
+<p>matrixes, dataframes is truly mind opening.</p>
+</div>
+</div>
 
 
 

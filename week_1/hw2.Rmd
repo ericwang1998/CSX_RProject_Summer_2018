@@ -6,3 +6,42 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+#Introduction to R
+####假設你是一位連長的統計師，甲排的人數統計一直沒交出來，所以派你去支援。
+#####從最基本算起，班：9人加1班長，1信號兵  
+#####清算出甲班總人數
+```{r}
+squad_a = 9 + 1 + 1
+print(squad_a)
+```
+#####甲排內分為：“甲，乙，丙班”。乙和丙班都只有7個步兵，而且丙班信号兵还没分配。清算出甲排的總人數。
+```{r}
+squad_a = 9 + 1 + 1
+squad_b = 7 + 1 + 1
+squad_c = 7 + 1
+platoon_a = squad_a + squad_b + squad_c
+print(platoon_a)
+```
+#####原本想把乙班班長叫來詢問，但他人不在，所以我們就把它記錄下來。
+```{r}
+sergeant_b_name = "Jackie Wu"
+sergeant_b_present = FALSE
+print(class(sergeant_b_name))
+print(class(sergeant_b_present))
+print(class(squad_b))
+```
+####另一天傳來邪惡帝國要和我們正義聯合國開戰的訊息。所以你就被派去統計兩國的戰力。
+knitr::include_graphics('C:/Users/Heidi Chen/Downloads/Cat_Sithlord.png')
+
+
+
+
+
+
+
+
+
+#### I am amazed at how simple R is at data manipulation. The easy creation and handling of a vectors, dictionaries, 
+matrixes, dataframes is truly mind opening.
+
