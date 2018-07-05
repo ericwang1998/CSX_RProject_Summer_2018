@@ -51,10 +51,25 @@ army_types <- c("Navy", "Land", "Air")
 names(excess_or_lack) <- army_types
 print(excess_or_lack)
 ```
+```{r}
+total_just_soldiers <- sum(just_soldiers)
+total_evil_soldiers <- sum(evil_soldiers)
+total_evil_soldiers > total_just_soldiers
+```
+```{r}
+names(evil_soldiers) <- army_types
+names(just_soldiers) <- army_types
+just_navy <- just_soldiers["Navy"]
+evil_navy <- evil_soldiers[c(1)]
+evil_navy > just_navy
+```
 
-
-
-
+```{r}
+selection_army <- excess_or_lack[c(1:3)] > 0
+print(selection_army)
+winning_army <- excess_or_lack[selection_army]
+print(winning_army)
+```
 #### I am amazed at how simple R is at data manipulation. The easy creation and handling of a vectors, dictionaries, 
 matrixes, dataframes is truly mind opening.
 
