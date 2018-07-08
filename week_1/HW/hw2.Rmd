@@ -19,3 +19,11 @@ knitr::opts_chunk$set(echo = TRUE)
 #### The V2 looping is new to e. Utilising ':' in R is still very new for myself. 
 
 #### Knowing how to properly use the break and next statements.
+
+#### ?(function) will allow us to get help about functions
+
+#### ... ellipsis is a way for R to pass arguments along without the fucntion having to name them explicitly. 
+
+#### writing a function in R is also totally different from python. Setting default values to arguments are important to prevent running into an error. 
+
+#### The passing arguments by values part, I am still uncertain. Need to relook again. 
