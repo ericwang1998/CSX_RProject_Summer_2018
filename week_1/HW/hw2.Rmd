@@ -13,3 +13,9 @@ knitr::opts_chunk$set(echo = TRUE)
 #### TRUE == 1, FALSE == 0
 
 #### The && and || operators returns the first element's logic output. 
+
+#### The parenthesis of the for and the while loop is quite different from python. 
+
+#### The V2 looping is new to e. Utilising ':' in R is still very new for myself. 
+
+#### Knowing how to properly use the break and next statements.
