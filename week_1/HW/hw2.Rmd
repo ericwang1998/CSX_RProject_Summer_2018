@@ -6,6 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+#Intermediate R
 
 ##Relational Operators
 #### The greater string is determined based on alphabetical order
