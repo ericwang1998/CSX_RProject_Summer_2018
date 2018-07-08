@@ -12,3 +12,4 @@ knitr::opts_chunk$set(echo = TRUE)
 #### The greater string is determined based on alphabetical order
 #### TRUE == 1, FALSE == 0
 
+#### The && and || operators returns the first element's logic output. 
