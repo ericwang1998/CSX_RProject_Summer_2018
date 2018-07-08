@@ -1,0 +1,13 @@
+---
+title: "hw2"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Relational Operators
+#### The greater string is determined based on alphabetical order
+#### TRUE == 1, FALSE == 0
+
