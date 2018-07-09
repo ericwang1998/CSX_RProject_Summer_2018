@@ -27,3 +27,5 @@ knitr::opts_chunk$set(echo = TRUE)
 #### writing a function in R is also totally different from python. Setting default values to arguments are important to prevent running into an error. 
 
 #### The passing arguments by values part, I am still uncertain. Need to relook again. 
+
+#### using l apply to have the contents and the class names of the list. 
