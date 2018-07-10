@@ -8,3 +8,16 @@ output: html_document
 ##Looking at data
 
 ##Adding data into dataframe
+* Dollar sign
+* cbind
+
+##Removing data from dataframe
+* Dollar sign
+* subset function
+
+##Renaming column names
+
+##QUerying for specific cases with subset functions
+
+##Adding new rows with rbind
+
