@@ -39,3 +39,26 @@ knitr::opts_chunk$set(echo = TRUE)
 
 #### vapply function
 * apply function over list or vector and specify the output. 
+
+#### str function in R is short for structure, not a string, this is something that I'll have to watch out for. 
+
+#### Regular expressions. Useful for data cleaning.
+
+* Sequence of (meta)characters
+* Pattern existence
+* Pattern replacement
+* Pattern extraction
+
+#### Metacharacters
+* ^a refers to elements starting with a
+* a$ refers to elements ending with a 
+?regex in the console
+
+grepl outputs logic that matches the pattern
+grep outputs the indices that matches the pattern
+sub, subsitutes components of strings (the first match)
+gsub substitutes all matches in the string. 
+
+##Handling dates
+* R uses POSIXct as time to do time manipulations
+* Dedicated R packages includes lubridate, zoo and zts.
