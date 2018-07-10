@@ -1,0 +1,47 @@
+---
+title: "hw4_Tidyverse"
+output: html_document
+---
+libraries used:
+
+*Gapminder
+*dplyr
+
+#Filter verb
+%>% brings forward the values to the next line.
+
+#Arrange verb
+arrange() sorts a table based on a variable.
+
+#Mutate verb
+changes a variable, replacing the left with the right of the "="
+Manipulating existing data, changing in the new dataframe that is returned. 
+
+Plotting scatterplots with ggplot2
+*using log scales
+Aesthetics
+*using colours to represent categorical values
+*using size of the dots to represent some numerical significance. 
+
+Faceting
+*creating subplots
++facet_wrap(~....)
+
+The data transformation and visualisation framework.
+
+#summarize verb
+summarize(mean variable = mean(variable))
+
+#group_by verb
+summarizing by groups
+group_by(variable) - variable becomes the key of the output. 
+
+#visualising summarised data
+start y axis at zero = expand_limits(y = 0)
+
+#different kinds of plots
+geom_point() refers to scatterplot
+geom_line() refers to lineplot
+geom_col() refers to barplot (barplots always start at 0)
+geom_histogram(binwidth =...) refers to histogram. Binwidth will determine the width of the bars.only contains 1 aesthetic
+geom_boxplot() refers to a boxplot
