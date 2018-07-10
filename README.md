@@ -20,7 +20,8 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 * At home
   1. Introduction to R on Data camp
   2. Intermediate R on Data camp
-  3. Introduction to Tidyverse on Data camp
+  3. Exploring DataFrames on Data camp
+  4. Introduction to Tidyverse on Data camp
 
 #Week 2
 * In class
