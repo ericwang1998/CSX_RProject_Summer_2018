@@ -1,0 +1,10 @@
+---
+title: "hw3_dataframes"
+output: html_document
+---
+
+##Creating a data frame
+
+##Looking at data
+
+##Adding data into dataframe
