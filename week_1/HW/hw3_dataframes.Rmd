@@ -21,3 +21,19 @@ output: html_document
 
 ##Adding new rows with rbind
 
+##Categorising categorical factors
+
+##Categorising numerical factors
+
+##Creating new numerical factors based on calculations
+
+##Derived factors
+
+##Summary statistics
+
+##Changing dataframes to wide or long.
+
+##Merging dataframes
+*Outer join and inner join
+*Both outer and inner join
+*Merging based on multiple variables. 
