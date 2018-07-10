@@ -14,7 +14,10 @@ This folder contains the files that are done in class as well as homework.
     + The files stored in this folder are part of the tasks to do at home. Mainly learning points from our adventures on Datacamp.. in
       Rmarkdown files of course. 
       
-* Impressions of the course so far:
-**Fun | **Awesomeness | **Overall
---- | --- | --- |
-_10/10 | 10/10 | 10/10 
+* Impressions of the course so far:  
+
+Fun | Awesomeness | Overall
+--- | :---: | --- |
+10/10 | 10/10 | 10/10 
+
+![alt text](http://www.lavackfitness.com/blog/wp-content/uploads/2016/04/Team-Awesome-Meme-01.png "You're Awesome!")
