@@ -1,4 +1,4 @@
-## Folder contents
+## Week 1
 This folder contains the files that are done in class as well as homework.  
 * [Class_assignment.Rmd](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/Class_assignment.Rmd)
     + It was part of the class activity which enabled us to _create Rmarkdown files_ to present information in a beautiful manner
