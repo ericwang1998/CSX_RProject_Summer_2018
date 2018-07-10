@@ -10,4 +10,11 @@ This folder contains the files that are done in class as well as homework.
       capabilities of R. 
     + Plus, we were taught how to link this HTML so that when you click the button above, it runs the HTML on the browser instead of 
       linking you to the HTML script stored on github.
-* [HW](
+* [HW](https://github.com/ericwang1998/CSX_RProject_Summer_2018/tree/master/week_1/HW)
+    + The files stored in this folder are part of the tasks to do at home. Mainly learning points from our adventures on Datacamp.. in
+      Rmarkdown files of course. 
+      
+* Impressions of the course so far:
+**Fun | **Awesomeness | **Overall
+--- | --- | --- |
+_10/10 | 10/10 | 10/10 
