@@ -3,10 +3,6 @@ title: "Homework week 1"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 #Introduction to R
 ####__假設你是一位連長的統計師，甲排的人數統計一直沒交出來，所以派你去支援__  
 
@@ -51,11 +47,13 @@ army_types <- c("Navy", "Land", "Air")
 names(excess_or_lack) <- army_types
 print(excess_or_lack)
 ```
+#####現在我們來比較總數！
 ```{r}
 total_just_soldiers <- sum(just_soldiers)
 total_evil_soldiers <- sum(evil_soldiers)
 total_evil_soldiers > total_just_soldiers
 ```
+#####感覺前景非常不利，。 。 。。 。 。不過好像海軍有機會，我們比比敵方海軍是不是比較龐大。
 ```{r}
 names(evil_soldiers) <- army_types
 names(just_soldiers) <- army_types
@@ -63,13 +61,16 @@ just_navy <- just_soldiers["Navy"]
 evil_navy <- evil_soldiers[c(1)]
 evil_navy > just_navy
 ```
-
+#####再做最後一次的確定，看看我們那個兵種最有機會能打勝仗。
 ```{r}
 selection_army <- excess_or_lack[c(1:3)] > 0
 print(selection_army)
 winning_army <- excess_or_lack[selection_army]
 print(winning_army)
 ```
-#### I am amazed at how simple R is at data manipulation. The easy creation and handling of a vectors, dictionaries, 
-matrixes, dataframes is truly mind opening.
+#####最後我方派出了海軍， 扭轉了趨勢，對虧有你的分析，拯救了正義共和國！
+![水啦](C:/Users/Heidi Chen/Downloads/homer-excited.png)
+
+
+#### 我很訝異 R 這麼好容易新增和處理objects。例如 vectors，matrixes，dataframe。以上就是我試著編劇，娛樂自己再把datacamp的東西複習一遍。
 
