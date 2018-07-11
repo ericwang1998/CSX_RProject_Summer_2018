@@ -2,3 +2,58 @@
 title: "week2hw"
 output: html_document
 ---
+
+```{r} echo = FALSE
+library(ggplot2)
+```
+# Class Assignment 2 
+## Lesson 2 - Data visualization
+
+### We will be looking at how to utilise ggplot to quickly generate various graphs.
+* I had ggplot2 package pre-installed.
+####Bar and scatterplot
+* We will utilise the built-in data in R: the Iris dataset.
+```{r}
+data("iris")
+```
+* Next we will start looking at our dataset.
+```{r}
+print(iris)
+summary(iris)
+str(iris)
+complete.cases(iris)
+```
+* So we can see that we have some continuous variables (Petal.width, Sepal.width...) and categorical variables (Species).
+* Therefore, let us try to plot a scatter and bar chart with the data. 
+```{r}
+ggplot(iris, aes(x = Species, y = Sepal.Length)) + geom_col()
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length, color = Species)) + geom_point()
+```
+* Now we will do some housekeeping to take out the datasets that we no longer need.
+```{r}
+remove(iris, trees)
+```
+* Same process for line graph
+```{r}
+data("economics")
+str(economics)
+complete.cases(economics)
+ggplot(economics, aes(x = date, y = pce)) + geom_point(color = "blue", size = 1)
+ggplot(economics, aes(x = pop, y = unemploy)) + geom_line(color = "pink", size = 2)
+remove(economics)
+```
+* Similar process for box plots and multiple line graph.
+```{r}
+data("txhousing")
+str(txhousing)
+ggplot(txhousing, aes(x = date, y = listings, group = city, color = city)) + geom_line()
+```
+* Box plot
+```{r}
+ggplot(txhousing, aes(x = year, y = sales, group = year)) + geom_boxplot()
+```
+* Stacked barplot - a bad example, but the code works :')
+```{r}
+ggplot(txhousing, aes(x = year, fill = city)) + geom_bar(position = "fill")
+```
+## AND WE HAVE COMPLETED THE EXERCISE. The next exercise is to import data from the internet. 
