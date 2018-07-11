@@ -1,6 +1,6 @@
 source('pttTestFunction.R')
 #create vector containing 1 to 10
-id = c(4430:4434)
+id = c(4430:4432)
 
 #defining the URL to capture the words
 URL = paste0("https://www.ptt.cc/bbs/Stock/index", id,".html")
