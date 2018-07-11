@@ -52,4 +52,8 @@ ggplot(txhousing, aes(x = year, y = sales, group = year)) + geom_boxplot()
 
 ## Stacked barplot
 ggplot(txhousing, aes(x = year, fill = city)) + geom_bar(position = "fill")
-                                                               
+
+##read csv to see SPY
+spy <- read.csv(file = "C:/Users/Heidi Chen/Documents/SPY.csv", header = TRUE, sep = ",")
+str(spy)
+ggplot(spy, aes(x = Date, y = Close)) + geom_abline()                                                               
