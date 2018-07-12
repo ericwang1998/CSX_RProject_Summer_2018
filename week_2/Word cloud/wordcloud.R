@@ -1,14 +1,15 @@
 #This worker initializes jiebaR workers.. what are they?
 library(jiebaR)
-library(wordcloud)
+library(wordcloud2)
 library(magrittr)
+library(png)
 wk <- worker()
 
 #import text
 text <- readLines("Mayunspeech1.txt", encoding = "UTF-8")
 
 #place all the characters we don't want into a vector
-stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实")
+stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实","了")
 #make them into one whole string separated by '|'
 stopwords.pattern <- paste0(stopwords, sep = "|", collapse = "") %>%
   substr(1, nchar(.) -1)
@@ -27,6 +28,4 @@ speech <- as.data.frame(table(speech))
 freq <- speech[order(speech$Freq, decreasing = T),]
 
 #Drawing the wordcloud
-wordcloud(freq$speech, freq$Freq,
-          min.freq = 2, random.order = F,
-          color = brewer.pal(8, "Dark2"))
+wordcloud2(freq, size = 1.5, color = "random-light", backgroundColor = "grey")

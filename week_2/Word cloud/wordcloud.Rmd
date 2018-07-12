@@ -5,7 +5,7 @@ output: html_document
 ####
 ```{r cars}
 library(jiebaR)
-library(wordcloud)
+library(wordcloud2)
 library(magrittr)
 ```
 ####
@@ -43,7 +43,5 @@ freq <- speech[order(speech$Freq, decreasing = T),]
 ```
 
 ```{r}
-wordcloud(freq$speech, freq$Freq,
-          min.freq = 2, random.order = F,
-          color = brewer.pal(8, "Dark2"))
+wordcloud2(freq, size = 1.5, color = "random-light", backgroundColor = "grey")
 ```
