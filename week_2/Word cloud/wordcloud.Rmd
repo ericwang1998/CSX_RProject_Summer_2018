@@ -2,14 +2,48 @@
 title: "wordcloud"
 output: html_document
 ---
-
+####
 ```{r cars}
-summary(cars)
+library(jiebaR)
+library(wordcloud)
+library(magrittr)
 ```
-
+####
+```{r}
+wk <- worker()
+```
 
 ```{r}
-plot(pressure)
+text <- readLines("Mayunspeech1.txt", encoding = "UTF-8")
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实")
+```
+
+```{r}
+stopwords.pattern <- paste0(stopwords, sep = "|", collapse = "") %>%
+  substr(1, nchar(.) -1)
+```
+
+```{r}
+text <- gsub(stopwords.pattern, " ", text)
+```
+
+```{r}
+speech <- wk[text]
+```
+
+```{r}
+speech <- as.data.frame(table(speech))
+```
+
+```{r}
+freq <- speech[order(speech$Freq, decreasing = T),]
+```
+
+```{r}
+wordcloud(freq$speech, freq$Freq,
+          min.freq = 2, random.order = F,
+          color = brewer.pal(8, "Dark2"))
+```
