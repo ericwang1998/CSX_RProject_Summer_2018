@@ -2,15 +2,15 @@
 library(jiebaR)
 library(wordcloud2)
 library(magrittr)
-library(png)
 wk <- worker()
 
 #import text
 text <- readLines("Mayunspeech1.txt", encoding = "UTF-8")
 
 #place all the characters we don't want into a vector
-stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实","了")
+stopwords <- c("我","的","在","和","都","也","不","就","上","为","我们","你们","他们","这","从","是","会","个","有","像","把","其实","了", "谁","所","但")
 #make them into one whole string separated by '|'
+
 stopwords.pattern <- paste0(stopwords, sep = "|", collapse = "") %>%
   substr(1, nchar(.) -1)
 # the one above takes them out. 

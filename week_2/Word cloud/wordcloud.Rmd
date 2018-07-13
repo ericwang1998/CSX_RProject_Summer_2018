@@ -2,46 +2,57 @@
 title: "wordcloud"
 output: html_document
 ---
-####
+# Class Assignment 2.2 - Word Cloud
+### _Date: 11/7/17_  
+
+今天我們要繪製一個文字云，來萃取一些文章的精髓。我選了中國近代傳奇企業家，馬雲的退休演講詞。我們就來一起看看他大概都是在講什麼吧！
+
+Today we are going to draw a word cloud to capture the essence of some articles. I chose the modern legendary entrepreneur, Jack Mah's resignation speech. Let us take a look at what he said together!
+
+####開啟R包裹 (Open R packages)
 ```{r cars}
 library(jiebaR)
 library(wordcloud2)
 library(magrittr)
 ```
-####
+####匯入文字切割器函數 (Insert the phrase identifier function)
 ```{r}
 wk <- worker()
 ```
-
+####匯入文字 (import text)
 ```{r}
 text <- readLines("Mayunspeech1.txt", encoding = "UTF-8")
 ```
-
+####找出無意義的單字 (Identify meaningless words into a vector)
 ```{r}
 stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实")
 ```
-
+####建立清楚單字的二步驟 (Create the two step procedure to rid the meanless words)
+先是將stopwords轉成一個長的OR string，這樣如果找到其中一個詞就會被刪掉。接下來就把他套到刪除函數。  
+First is to turn stopwords into a long OR string, next is to import the string into the substr() function.
 ```{r}
 stopwords.pattern <- paste0(stopwords, sep = "|", collapse = "") %>%
   substr(1, nchar(.) -1)
 ```
-
+####消滅計劃開始 (Pull the trigger)
 ```{r}
 text <- gsub(stopwords.pattern, " ", text)
 ```
-
+####切割機啟動(Activate the slicer)
 ```{r}
 speech <- wk[text]
 ```
-
+####將詞彙都存到一個資料框 (Save the phrases/words into a dataframe)
 ```{r}
 speech <- as.data.frame(table(speech))
 ```
-
+####整理一下資料框將出現率最高的排第一 (Order the dataframe such that the most frequent word comes first.)
 ```{r}
 freq <- speech[order(speech$Freq, decreasing = T),]
 ```
-
+####繪製文字云 (Draw the wordcloud)
 ```{r}
 wordcloud2(freq, size = 1.5, color = "random-light", backgroundColor = "grey")
 ```
+
+Now crack a beer and savour the essence of the resignation speech by the legendary Ali group founder Jack Ma. Truly inspiring.
