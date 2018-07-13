@@ -5,15 +5,17 @@ output: html_document
 # Class Assignment 2.2 - Word Cloud
 ### _Date: 11/7/17_  
 
-今天我們要繪製一個文字云，來萃取一些文章的精髓。我選了中國近代傳奇企業家，馬雲的退休演講詞。我們就來一起看看他大概都是在講什麼吧！
+#####今天我們要繪製一個文字云，來萃取一些文章的精髓。我選了中國近代傳奇企業家，馬雲的退休演講詞。我們就來一起看看他大概都是在講什麼吧！
 
-Today we are going to draw a word cloud to capture the essence of some articles. I chose the modern legendary entrepreneur, Jack Mah's resignation speech. Let us take a look at what he said together!
+#####Today we are going to draw a word cloud to capture the essence of some articles. I chose the modern legendary entrepreneur, Jack Mah's resignation speech. Let us take a look at what he said together!
+
 
 ####開啟R包裹 (Open R packages)
 ```{r cars}
 library(jiebaR)
 library(wordcloud2)
 library(magrittr)
+Sys.setlocale("LC_ALL", locale = "Chinese")
 ```
 ####匯入文字切割器函數 (Insert the phrase identifier function)
 ```{r}
@@ -25,7 +27,9 @@ text <- readLines("Mayunspeech1.txt", encoding = "UTF-8")
 ```
 ####找出無意義的單字 (Identify meaningless words into a vector)
 ```{r}
-stopwords <- c("我", "的", "在", "和", "都", "也", "不", "就", "上", "为", "我们", "这", "从","是", "会", "个","有","像","把","其实")
+stopwords <- c("我","的","在","和","都","也","不","就","上","为","我们","你们","他们","这","从","是",
+               "会","个","有","像","把","其实","了", "谁","所","但", "更", "很","什么", "一","因", "让",
+               "好", "每", "多", "得", "当", "将","座", "对", "没", "你","到")
 ```
 ####建立清楚單字的二步驟 (Create the two step procedure to rid the meanless words)
 先是將stopwords轉成一個長的OR string，這樣如果找到其中一個詞就會被刪掉。接下來就把他套到刪除函數。  
@@ -55,4 +59,4 @@ freq <- speech[order(speech$Freq, decreasing = T),]
 wordcloud2(freq, size = 1.5, color = "random-light", backgroundColor = "grey")
 ```
 
-Now crack a beer and savour the essence of the resignation speech by the legendary Ali group founder Jack Ma. Truly inspiring.
+#### Now crack a beer and savour the essence of the resignation speech by the legendary Ali group founder Jack Ma. Truly inspiring.
