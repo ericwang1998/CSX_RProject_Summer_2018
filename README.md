@@ -52,7 +52,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 * At home
   1. Exploring Twitter API - Donald J Trump's last 100 tweets
     + [R script](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_2/word_cloud/donald_trump_twitter_wordcloud.R)
-    + [PNG](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_2/word_cloud/Trump_100tweets_1546_13_7_2018.png)
+    + [Wordcloud PNG image](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_2/word_cloud/Trump_100tweets_1546_13_7_2018.png)
   2. Exploring ggmap
   3. Read Prelesson articles and slides for the next lesson. 
  
