@@ -59,4 +59,5 @@ freq <- speech[order(speech$Freq, decreasing = T),]
 wordcloud2(freq, size = 1.5, color = "random-light", backgroundColor = "grey")
 ```
 
-#### Now crack a beer and savour the essence of the resignation speech by the legendary Ali group founder Jack Ma. Truly inspiring.
+#### 我們從這裡可以看到最大的依舊是人。即使科技再發達，他的初衷依然是造福人群，解決世界的問題，帶來變化。他也提到了要他相信年輕人，覺得他們一定會做得比他好。我們這些年輕人就好好努力學好電腦這一技之長，把握未來的種種機會！
+#### We can see that the largest mention is the word human. The origins of technology is to help people, resolve the problems of the world, and bring about change. He also mentioned that he believes that the next generation will do it better than he can. Truly inspiring, There is a future for us, we just need to work hard and develope a strong skillset. Fling ourselves into the opportunities we can get!
