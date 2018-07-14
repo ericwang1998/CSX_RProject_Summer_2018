@@ -6,14 +6,41 @@ output: html_document
 #Intermediate R
 
 ##Relational Operators
-#### The greater string is determined based on alphabetical order
 
+#### The greater string is determined based on alphabetical order
+```{R}
+"csx" <= "is awesome"
+```
 
 #### TRUE == 1, FALSE == 0
+```{R}
+TRUE == 1
+```
+```{R}
+FALSE != 1
+```
+```{R}
+TRUE > FALSE
+```
 
 #### The && and || operators returns the first element's logic output. 
+```{R}
 
-#### The parenthesis of the for and the while loop is quite different from python. 
+```
+#### 胖虎的减肥大作战
+![我要準備出道當歌手了，幫我減肥！
+](C:/Users/Heidi Chen/Downloads/Fat_tiger.png)
++ 以下是營養師的七日飲食記錄的一部分，，來看看他一個禮拜喝可樂跟喝喝雪碧的次數。
+(Creating a vector)
+```{r}
+coke <- c(1, 2, 1, 2, 1, 1.5, 2.5)
+sprite <- c(3, 1, 2, 4, 3, 2, 1)
+coke > sprite
+```
+
+```{r}
+sodas <- matrix(c(coke, sprite), nrow = 2, byrow = TRUE)
+```
 
 #### The V2 looping is new to e. Utilising ':' in R is still very new for myself. 
 
