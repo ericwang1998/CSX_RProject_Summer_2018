@@ -24,7 +24,7 @@ wine_complete[1] <- NULL
 ```
 ##Clear out missing data
 ```{r}
-wine_complete <- wine_complete[complete.cases(TestData),]
+wine_complete <- wine_complete[complete.cases(wine_complete),]
 ```
 
 ```{r}
