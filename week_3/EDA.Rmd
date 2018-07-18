@@ -19,12 +19,12 @@ library(readr)
 ```
 
 ```{r setup, include= FALSE}
-TestData <- read.csv('./wine_data/winemag-data_first150k.csv')
-TestData[1] <- NULL
+wine_complete <- read.csv('./wine_data/winemag-data_first150k.csv')
+wine_complete[1] <- NULL
 ```
 ##Clear out missing data
 ```{r}
-wine_complete <- TestData[complete.cases(TestData),]
+wine_complete <- wine_complete[complete.cases(TestData),]
 ```
 
 ```{r}
