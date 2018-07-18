@@ -156,7 +156,7 @@ library(tm)</code></pre>
 </div>
 <div id="clear-out-missing-data" class="section level2">
 <h2>Clear out missing data</h2>
-<pre class="r"><code>wine_complete &lt;- TestData[complete.cases(TestData),]</code></pre>
+<pre class="r"><code>wine_complete &lt;- wine_complete[complete.cases(wine_complete),]</code></pre>
 <pre class="r"><code>head(wine_complete)</code></pre>
 <pre><code>##   country
 ## 1      US
