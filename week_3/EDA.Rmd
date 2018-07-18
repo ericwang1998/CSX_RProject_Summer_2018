@@ -1,0 +1,4 @@
+---
+title: "Report of Titanic: 2nd degree families and majority voting"
+output: html_document
+---
