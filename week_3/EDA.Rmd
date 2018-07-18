@@ -1,5 +1,5 @@
 ---
-title: "Report of Titanic: 2nd degree families and majority voting"
+title: "Report of Wine Reviews: Demystifying the sophisticated alcohol"
 output: html_document
 ---
 #### Data from: https://www.kaggle.com/zynicide/wine-reviews
@@ -10,19 +10,16 @@ Wines are just such delightful thing that life have given us, it is even an art 
 Are costs of the wine justified by the ratings of the sommeliers? Are other factors at play to the pricing of wines?
 Let us dive into the realm of this sophisticated beverage. 
 
-1. Load in the libraries
-```{r}
+
+```{r setup, include= FALSE}
 library(tidyverse)
 library(knitr)
 library(tm)
 library(readr)
-```
-
-```{r setup, include= FALSE}
 wine_complete <- read.csv('./wine_data/winemag-data_first150k.csv')
 wine_complete[1] <- NULL
 ```
-##Clear out missing data
+* Clear out missing data
 ```{r}
 wine_complete <- wine_complete[complete.cases(wine_complete),]
 ```
@@ -35,7 +32,7 @@ head(wine_complete)
 ggplot(wine_complete, aes(x = points)) + geom_histogram(binwidth = 1) + ggtitle("Frequencies of each point")
 ```
 
-Points are a scale so they are rather self explanatory, a 99 points bottle must be better than a 98 point bottle. However, how do we differentiate good wine from bad wine? Thus, we still need to categorise the points to give meaning to the numbers.
+* Points are a scale so they are rather self explanatory, a 99 points bottle must be better than a 98 point bottle. However, how do we differentiate good wine from bad wine? Thus, we still need to categorise the points to give meaning to the numbers.
 
 ```{r}
 wine_complete$Grade<- cut(wine_complete$points, c(0,50,60,70,80,90,95,100), right = FALSE, labels = c("undrinkable", "not recommended", "Average", "Above Average", "Very good", "Superior", "Exceptional"))
@@ -45,17 +42,19 @@ wine_complete$Grade<- cut(wine_complete$points, c(0,50,60,70,80,90,95,100), righ
 ggplot(wine_complete, aes(x = points, fill = Grade)) + geom_histogram(binwidth = 1) + ggtitle("Points showing how wines have been categorised by grade")
 ```
 
-Now we will look at the distribution for price vs score
+* Now we will look at the distribution for price vs score
 
 ```{r}
 ggplot(wine_complete, aes(x = price, y = points)) + geom_point()
 ```
-How "value for money" are wines then? We calculate the economic score of the wines to determine the number of scores per dollar paid for the wine.
+
+* How "value for money" are wines then? We calculate the economic score of the wines to determine the number of scores per dollar paid for the wine.
+
 ```{r}
 wine_complete$econ_score <- wine_complete$points / wine_complete$price
 ```
 
-Now we can take a look at the distribution of the economic score. 
+* Now we can take a look at the distribution of the economic score. 
 
 ```{r}
 ggplot(wine_complete, aes(x = 1, y = econ_score)) + geom_boxplot()
