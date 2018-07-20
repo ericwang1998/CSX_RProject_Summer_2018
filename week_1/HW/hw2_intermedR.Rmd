@@ -40,17 +40,51 @@ coke > sprite
 
 ```{r}
 sodas <- matrix(c(coke, sprite), nrow = 2, byrow = TRUE)
+#When does soda equals 3?
+sodas == 3
+sodas <= 1
 ```
 
-#### The V2 looping is new to e. Utilising ':' in R is still very new for myself. 
+#### Break statements terminates the loop while the next statements part of the loop. 
+```{r}
+geniuses <- list("pecu", "cm", "miccwan")
 
-#### Knowing how to properly use the break and next statements.
+for (genius in geniuses) {
+  if(nchar(genius) == 2) {
+    break
+  }
+  print(genius)
+}
+```
 
-#### ?(function) will allow us to get help about functions
+```{r}
+for (genius in geniuses) {
+  if(nchar(genius) == 2) {
+    next
+  }
+  print(genius)
+}
+
+```
+
+#### The v2 for loop enables us to access the index of the vector
+```{r}
+geniuses <- as.vector(geniuses)
+for(i in 1:length(geniuses)) {
+  print(paste(geniuses[i], "is on position",
+              i, " in the geniuses vector"))
+}
+```
 
 #### ... ellipsis is a way for R to pass arguments along without the fucntion having to name them explicitly. 
 
-#### writing a function in R is also totally different from python. Setting default values to arguments are important to prevent running into an error. 
+#### writing a function in R 
+```{r}
+I_am_awesome <- function (a) {
+  print(paste(a," is not as awesome as I am"))
+}
+I_am_awesome("Chris Hemsworth")
+```
 
 #### The passing arguments by values part, I am still uncertain. Need to relook again. 
 
