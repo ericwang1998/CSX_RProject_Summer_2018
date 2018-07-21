@@ -86,7 +86,20 @@ I_am_awesome <- function (a) {
 I_am_awesome("Chris Hemsworth")
 ```
 
-#### The passing arguments by values part, I am still uncertain. Need to relook again. 
+#### R passes arguments by value, so values within the function does not affect the variable outside the function. 
+
+```{r}
+power <- function (x){
+  x <- x ** x
+  x
+}
+
+a <- 5
+power(a)
+##Though power(a) outputs a**a, variable remains unchanged. 
+a
+```
+
 
 #### using lapply to quickly pass list or vector through functions. Both built-in and your own functions. 
 * Can return R objects of different classes
@@ -102,6 +115,8 @@ I_am_awesome("Chris Hemsworth")
 
 #### str function in R is short for structure, not a string, this is something that I'll have to watch out for. 
 
+```{r}
+```
 #### Regular expressions. Useful for data cleaning.
 
 * Sequence of (meta)characters
