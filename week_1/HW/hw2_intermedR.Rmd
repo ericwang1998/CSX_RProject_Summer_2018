@@ -24,13 +24,11 @@ TRUE > FALSE
 ```
 
 #### The && and || operators returns the first element's logic output. 
-```{R}
 
-```
-#### 胖虎的减肥大作战
-![我要準備出道當歌手了，幫我減肥！
+#### 胖虎的减肥大作战  
+![我要準備出道當歌手了，幫我減肥!
 ](C:/Users/Heidi Chen/Downloads/Fat_tiger.png)
-+ 以下是營養師的七日飲食記錄的一部分，，來看看他一個禮拜喝可樂跟喝喝雪碧的次數。
++ 以下是營養師的七日飲食記錄的一部分，，來看看他一個禮拜喝可樂跟喝喝雪碧的次數。  
 (Creating a vector)
 ```{r}
 coke <- c(1, 2, 1, 2, 1, 1.5, 2.5)
@@ -45,7 +43,7 @@ sodas == 3
 sodas <= 1
 ```
 
-#### Break statements terminates the loop while the next statements part of the loop. 
+#### Break statements terminates the loop while the next statements skips part of the loop. 
 ```{r}
 geniuses <- list("pecu", "cm", "miccwan")
 
@@ -107,33 +105,41 @@ a
 * Can sometimes repeat homogeneous contents. 
 
 #### sapply function
-*Automatically simplify the output from a list to a vector
+* Automatically simplify the output from a list to a vector
 * but still returns a list if it cannot find a meaningful way to simplify the vector.
 
 #### vapply function
 * apply function over list or vector and specify the output. 
 
-#### str function in R is short for structure, not a string, this is something that I'll have to watch out for. 
+ * The above three are ways we can run objects through functions without the need to do a for loop.
+ 
+#### str function in R is short for structure, not a string
 
 ```{r}
+str(a)
 ```
-#### Regular expressions. Useful for data cleaning.
+#### other useful functions includes
+* Data Utilities: seq(), rep(), sort(), rev()
+* Math Utilities: abs(), round(), sum()
 
-* Sequence of (meta)characters
-* Pattern existence
-* Pattern replacement
-* Pattern extraction
+
+#### Regular expressions. Useful for data cleaning.
+```{r}
+emails <- c("john.doe@ivyleague.edu", "education@world.gov", "dalai.lama@peace.org", "invalid.edu", "quant@bigdatacollege.edu", "cookie.monster@sesame.tv")
+#using grepl to match for "edu
+grepl("edu", emails)
+grep("edu", emails)
+#grepl returns a logic while grep returns the index.
+```
+  
+sub, subsitutes components of strings (the first match)
+gsub substitutes all matches in the string. 
 
 #### Metacharacters
 * ^a refers to elements starting with a
 * a$ refers to elements ending with a 
 ?regex in the console
 
-grepl outputs logic that matches the pattern
-grep outputs the indices that matches the pattern
-sub, subsitutes components of strings (the first match)
-gsub substitutes all matches in the string. 
-
-##Handling dates
+#### Handling dates
 * R uses POSIXct as time to do time manipulations
 * Dedicated R packages includes lubridate, zoo and zts.
