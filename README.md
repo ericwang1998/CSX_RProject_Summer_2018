@@ -22,7 +22,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   + [HTML File](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_1/HW/hw1_introtoR.html)
   + [R Markdown File](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/HW/hw1_introtoR.Rmd)
   2. Intermediate R on Data camp
-  + HTML File (In progress)
+  + [HTML File](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_1/HW/hw2_intermedR.html)
   + [R Markdown File](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/HW/hw2_intermedR.Rmd)
   3. Exploring DataFrames on Data camp
   + HTML File (In progress)
