@@ -3,45 +3,54 @@ title: "hw4_Tidyverse"
 output: html_document
 ---
 libraries used:
+```{r echo=T, results='hide'}
+library(dplyr)
+library(magrittr)
+library(ggplot2)
+```
+#### Data manipulation techniques with filter, arrange, mutate.
+```{r}
+data("CO2") 
 
-*Gapminder
-*dplyr
+carbon <- CO2 %>%
+  filter(., Treatment == "chilled") %>%
+  #filter verb
+  arrange(., desc(conc)) %>%
+  #Arrange verb - sorts a table based on a variable, here we put it in descending order using desc().
+  mutate(conc_per_t = conc / 100)
+  #Mutate verb here enables us to add in another column called conc_per_t. Helps in computing new variables. 
+```
 
-#Filter verb
-%>% brings forward the values to the next line.
 
-#Arrange verb
-arrange() sorts a table based on a variable.
+####Plotting scatterplots with ggplot2
+* using log scales  
 
-#Mutate verb
-changes a variable, replacing the left with the right of the "="
-Manipulating existing data, changing in the new dataframe that is returned. 
-
-Plotting scatterplots with ggplot2
-*using log scales
-Aesthetics
-*using colours to represent categorical values
-*using size of the dots to represent some numerical significance. 
-
-Faceting
-*creating subplots
-+facet_wrap(~....)
-
+####Aesthetics
+* using colours to represent categorical values
+* using size of the dots to represent some numerical significance. 
+```{r}
+ggplot(CO2, aes(x = Plant, y = uptake, color = Treatment, size = conc)) + geom_point()
+```
+#### Faceting
+* adds another dimension to look at data. Good for time series. 
+```{r}
+ggplot(CO2, aes(x = Plant, y = uptake, color = Treatment, size = conc)) + geom_point() + facet_grid(~Type)
+```
 The data transformation and visualisation framework.
 
-#summarize verb
+####summarize verb
 summarize(mean variable = mean(variable))
 
-#group_by verb
+####group_by verb
 summarizing by groups
 group_by(variable) - variable becomes the key of the output. 
 
-#visualising summarised data
+####visualising summarised data
 start y axis at zero = expand_limits(y = 0)
 
-#different kinds of plots
-geom_point() refers to scatterplot
-geom_line() refers to lineplot
-geom_col() refers to barplot (barplots always start at 0)
-geom_histogram(binwidth =...) refers to histogram. Binwidth will determine the width of the bars.only contains 1 aesthetic
-geom_boxplot() refers to a boxplot
+####different kinds of plots
+* *geom_point()* refers to scatterplot
+* *geom_line()* refers to lineplot
+* *geom_col()* refers to barplot (barplots always start at 0)
+* *geom_histogram(binwidth =...)* refers to histogram. Binwidth will determine the width of the bars.only contains 1 aesthetic
+* *geom_boxplot()* refers to a boxplot
