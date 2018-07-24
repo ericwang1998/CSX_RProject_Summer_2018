@@ -66,8 +66,8 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   2. Text mining process using TFIDF, PCA and K means
    * Files
       + [R script](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/TFIDF_PCA_Kmeans.R)
-      + [R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/TFIDF_PCA_Kmeans.Rmd)
-      + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_3/TFIDF_PCA_Kmeans.html)
+      + [R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/songs_data/TFIDF_PCA_Kmeans.Rmd)
+      + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_3/songs_data/TFIDF_PCA_Kmeans.html)
       
 #Week 4
 * In class
