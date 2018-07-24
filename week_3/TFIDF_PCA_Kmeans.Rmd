@@ -190,4 +190,4 @@ The rest of the songs in red, are all very different songs. Thus, I am not parti
 
 I suspected that the tf-idf ==0 words are affecting the results but when I tried deleting them, I can't seem to find them at all. I believe the songs seem to vary too much to find meaningful groups to provide any kind of conclusion. 
 
-Thus, the dataset is too small to derive any meaningful conclusions. 
+Also, I feel that the dataset is too small to derive any meaningful conclusions. 
