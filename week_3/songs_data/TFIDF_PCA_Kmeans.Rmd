@@ -15,6 +15,8 @@ library(factoextra)
 library(stringr)
 library(readr)
 library(tidyr)
+library(tidyverse)
+library(ggplot2)
 ```
 
 ```{r workingdirectory, include = FALSE}
@@ -194,6 +196,9 @@ Also, I feel that the dataset is too small to derive any meaningful conclusions.
 
 ### tidydata and plotting
 ```{r}
+inspect(dtm)
+terms <- Terms(dtm)
+head(terms)
 songs_tidy <- tidy(dtm)
 
 songs_tidy %>%
@@ -205,8 +210,8 @@ songs_tidy %>%
   ggplot(aes(term, count, fill = document)) +
   geom_col(show.legend = FALSE) +
   labs(x = NULL, y = "count") +
-  facet_wrap(~document, ncol = 3, scales = "free") +
-  coord_flip()
+  facet_wrap(~document, ncol = 6, scales = "free") +
+  coord_flip() 
 ```
 
 So I tried looking at the most frequent words that appear in each songs, but it doesn't seem to help as well. There are words that are frequent like "your" but they are not frequent enough to be taken out. So... I guess this is one of the limitations of TF-IDF, when the texts files are too diverse to have repeating words. 

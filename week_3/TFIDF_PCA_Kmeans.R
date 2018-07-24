@@ -6,6 +6,7 @@ library(factoextra)
 library(stringr)
 library(readr)
 library(tidyr)
+
 setwd("~/GitHub/CSX_RProject_Summer_2018/week_3/songs_data")
 files_list <- list.files(path = ".", recursive = TRUE,
                          pattern = "*.txt$", full.names = TRUE)
@@ -24,7 +25,6 @@ song_words <- corpus_song %>%
 
 #obtain DTM
 dtm <- DocumentTermMatrix(song_words)
-inspect(dtm)
 
 #create matrix of words and their count in the different texts
 doc_tf <- apply(as.matrix(dtm), 2, function(word) {word/sum(word) })
@@ -65,3 +65,21 @@ plot(wss, type = "b")
 km <- kmeans(ind_coord2, 3)
 plot(ind_coord2, col = km$cluster)
 points(km$centers, col = 1:3, pch = 8, cex = 2)
+
+#looking at the data with tidy data
+inspect(dtm)
+terms <- Terms(dtm)
+head(terms)
+songs_tidy <- tidy(dtm)
+
+songs_tidy %>%
+  arrange(desc(count)) %>%
+  mutate(term = factor(term, levels = rev(unique(term)))) %>% 
+  group_by(document) %>% 
+  top_n(8) %>% 
+  ungroup %>%
+  ggplot(aes(term, count, fill = document)) +
+  geom_col(show.legend = FALSE) +
+  labs(x = NULL, y = "count") +
+  facet_wrap(~document, ncol = 4, scales = "free") +
+  coord_flip()
