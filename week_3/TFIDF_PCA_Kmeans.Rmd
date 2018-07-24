@@ -1,0 +1,110 @@
+---
+title: "TFIDF_PCA_Kmeans"
+output: html_document
+---
+# Text mining using TF-IDF, PCA and K means
+### Today we will be looking at the annual bill board winners to see if there are changes in the billboard winning songs from 1990 to 2018. 
+
+1. _Load the libraries_
+```{r loadlibraries, results = "hide"}
+library(tm)
+library(magrittr)
+library(tidytext)
+library(Matrix)
+library(factoextra)
+library(stringr)
+library(readr)
+library(tidyr)
+```
+
+```{r workingdirectory, include = FALSE}
+setwd("~/GitHub/CSX_RProject_Summer_2018/week_3/songs_data")
+```
+2. _Load in the txt files_
+```{r}
+files_list <- list.files(path = ".", recursive = TRUE,
+                         pattern = "*.txt$", full.names = TRUE)
+songs <- lapply(files_list, read_file) %>%
+  unlist(.)
+```
+
+3. _Change format into corpus_
+```{r}
+df <- as.data.frame(songs)
+corpus_song <- Corpus(VectorSource(df$songs))
+```
+
+4. _Cleaning up some punctuations_
+```{r}
+song_words <- corpus_song %>%
+  tm_map(removePunctuation)  %>%
+  tm_map(removeNumbers)
+```
+
+5. _Document Term Matrix_
+```{r}
+dtm <- DocumentTermMatrix(song_words)
+dtm
+```
+6. Now that the text files are prepared, we will now move on to the analysis
+
+### TF-IDF
+1. _Tabulating the Term Frequencies_
+```{r}
+doc_tf <- apply(as.matrix(dtm), 2, function(word) {word/sum(word)})
+```
+
+2. _Create the IDF function to load the algorithm_
+```{r}
+idf <- function(doc) {
+  return(log2( length(doc) + 1 / nnzero(doc)) )
+}
+```
+
+3. _Obtain IDF_
+```{r}
+doc_idf <- apply(as.matrix(dtm), 1, idf)
+```
+
+4. _Obtain TFIDF_
+```{r}
+docs_tfidf <- doc_tf * doc_idf
+```
+
+### PCA
+1. _Conduct the PCA using the tfidf results_
+```{r}
+docs_pca <- prcomp(docs_tfidf, scale = T)
+```
+
+2. _Drawing the plots with eigenvalues_
+```{r}
+fviz_eig(docs_pca)
+fviz_pca_ind(docs_pca, geom.ind = c("point"), col.ind = "cos2")
+fviz_pca_var(docs_pca, col.var = "contrib")
+fviz_pca_biplot(docs_pca, geom.ind = "point")
+```
+
+3. _Save the individual PCA results into separate variables_
+```{r}
+docs_eig <- get_eig(docs_pca)
+docs_var <- get_pca_var(docs_pca)
+docs_ind <- get_pca_ind(docs_pca)
+```
+
+### K means clustering
+1. K means
+```{r}
+ind_coord2 <- docs_ind$coord[,1:2]
+wss <- c()
+for (i in 1:10) {
+  wss[i] <- kmeans(ind_coord2, i)$tot.withinss
+}
+plot(wss, type = "b")
+```
+2. Clustering
+```{r}
+km <- kmeans(ind_coord2, 3)
+plot(ind_coord2, col = km$cluster)
+points(km$centers, col = 1:3, pch = 8, cex = 2)
+```
