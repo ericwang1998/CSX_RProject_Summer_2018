@@ -60,19 +60,22 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
       + [R Markdown file](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/EDA.Rmd)
       + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_3/EDA.html)
   2. TFIDF -> PCA -> K-means (Live coding)
-    
+   
 * At home
   1. Correlation and Regression on Datacamp
-  +  
   2. Text mining process using TFIDF, PCA and K means
-  + 
-#Week 5
+   * Files
+      +[R script](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/TFIDF_PCA_Kmeans.R)
+      +[R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/TFIDF_PCA_Kmeans.Rmd)
+      +[HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_3/TFIDF_PCA_Kmeans.html)
+      
+#Week 4
 * In class
 
 
 * At home
 
-#Week 6
+#Week 5
 * In class
 
 
