@@ -3,6 +3,9 @@ library(magrittr)
 library(tidytext)
 library(Matrix)
 library(factoextra)
+library(stringr)
+library(readr)
+library(tidyr)
 setwd("~/GitHub/CSX_RProject_Summer_2018/week_3/songs_data")
 files_list <- list.files(path = ".", recursive = TRUE,
                          pattern = "*.txt$", full.names = TRUE)
@@ -21,6 +24,7 @@ song_words <- corpus_song %>%
 
 #obtain DTM
 dtm <- DocumentTermMatrix(song_words)
+inspect(dtm)
 
 #create matrix of words and their count in the different texts
 doc_tf <- apply(as.matrix(dtm), 2, function(word) {word/sum(word) })
@@ -33,6 +37,7 @@ idf <- function(doc) {
 doc_idf <- apply(as.matrix(dtm), 1, idf)
 
 docs_tfidf <- doc_tf * doc_idf
+head(docs_tfidf)
 
 ## PCA
 docs_pca <- prcomp(docs_tfidf, scale = T)

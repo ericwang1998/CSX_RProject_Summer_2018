@@ -44,7 +44,7 @@ song_words <- corpus_song %>%
 5. _Document Term Matrix_
 ```{r}
 dtm <- DocumentTermMatrix(song_words)
-dtm
+inspect(dtm)
 ```
 6. Now that the text files are prepared, we will now move on to the analysis
 
@@ -93,7 +93,7 @@ docs_ind <- get_pca_ind(docs_pca)
 ```
 
 ### K means clustering
-1. K means
+1. _K means_
 ```{r}
 ind_coord2 <- docs_ind$coord[,1:2]
 wss <- c()
@@ -102,7 +102,7 @@ for (i in 1:10) {
 }
 plot(wss, type = "b")
 ```
-2. Clustering
+2. _Clustering_
 ```{r}
 km <- kmeans(ind_coord2, 3)
 plot(ind_coord2, col = km$cluster)
@@ -180,3 +180,14 @@ km <- kmeans(ind_coord2, 3)
 plot(ind_coord2, col = km$cluster)
 points(km$centers, col = 1:3, pch = 8, cex = 2)
 ```
+
+
+Usher's yea has come out once again as a distinct category. I believe it is because of the unique use of words like gangster and all
+
+This time Robin Thicke's blurred lines was a distinct group of its own. The usage of words appears to be more sexual than the rest of the songs. Probably explaining the difference. 
+
+The rest of the songs in red, are all very different songs. Thus, I am not particularly sure why they are grouped together. 
+
+I suspected that the tf-idf ==0 words are affecting the results but when I tried deleting them, I can't seem to find them at all. I believe the songs seem to vary too much to find meaningful groups to provide any kind of conclusion. 
+
+Thus, the dataset is too small to derive any meaningful conclusions. 
