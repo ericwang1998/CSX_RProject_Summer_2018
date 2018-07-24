@@ -108,3 +108,75 @@ km <- kmeans(ind_coord2, 3)
 plot(ind_coord2, col = km$cluster)
 points(km$centers, col = 1:3, pch = 8, cex = 2)
 ```
+
+The dark blue point is a song called "Despacito", which is the hit song of last year. Due to the full Spanish nature of the song, I believe that that is the reason why it got singled out from the rest. 
+
+The green point is Usher's Yea in 2004. I have no clue why in particular the lyrics are different. 
+
+So even though the analysis is complete, it is not meaningful, so we should it again.
+
+Therefore, I think I will run the analysis again without despacito. So it will become looking at the differences in English Billboard songs. 
+
+```{r include= FALSE}
+files_list <- list.files(path = ".", recursive = TRUE,
+                         pattern = "*.txt$", full.names = TRUE)
+files_list <- files_list[-23]
+songs <- lapply(files_list, read_file) %>%
+  unlist(.)
+```
+```{r include= FALSE}
+df <- as.data.frame(songs)
+corpus_song <- Corpus(VectorSource(df$songs))
+```
+```{r include= FALSE}
+song_words <- corpus_song %>%
+  tm_map(removePunctuation)  %>%
+  tm_map(removeNumbers)
+```
+```{r include= FALSE}
+dtm <- DocumentTermMatrix(song_words)
+```
+```{r include= FALSE}
+doc_tf <- apply(as.matrix(dtm), 2, function(word) {word/sum(word)})
+```
+```{r include= FALSE}
+idf <- function(doc) {
+  return(log2( length(doc) + 1 / nnzero(doc)) )
+}
+```
+```{r include= FALSE}
+doc_idf <- apply(as.matrix(dtm), 1, idf)
+```
+```{r include= FALSE}
+docs_tfidf <- doc_tf * doc_idf
+```
+```{r include= FALSE}
+docs_pca <- prcomp(docs_tfidf, scale = T)
+```
+### New plots
+```{r echo = FALSE}
+fviz_eig(docs_pca)
+fviz_pca_ind(docs_pca, geom.ind = c("point"), col.ind = "cos2")
+fviz_pca_var(docs_pca, col.var = "contrib")
+fviz_pca_biplot(docs_pca, geom.ind = "point")
+```
+```{r include= FALSE}
+docs_eig <- get_eig(docs_pca)
+docs_var <- get_pca_var(docs_pca)
+docs_ind <- get_pca_ind(docs_pca)
+```
+### K means
+```{r}
+ind_coord2 <- docs_ind$coord[,1:2]
+print(ind_coord2)
+wss <- c()
+for (i in 1:10) {
+  wss[i] <- kmeans(ind_coord2, i)$tot.withinss
+}
+plot(wss, type = "b")
+```
+```{r echo = FALSE}
+km <- kmeans(ind_coord2, 3)
+plot(ind_coord2, col = km$cluster)
+points(km$centers, col = 1:3, pch = 8, cex = 2)
+```
