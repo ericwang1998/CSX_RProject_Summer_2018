@@ -2,6 +2,7 @@ library(tm)
 library(ggplot2)
 library(dplyr)
 library(broom)
+library(magrittr)
 
 ## Looking at the data
 wine_complete <- read.csv('./wine_data/winemag-data_first150k.csv')
@@ -46,25 +47,17 @@ wine_complete %>%
   facet_wrap(~country) + 
   ggtitle("Distribution of scores for top 5 countries")
 
-wine_complete %>%
-  filter(country == top_5_countries) %>%
-  ggplot(aes(x = price)) + 
-  geom_histogram() + 
-  facet_wrap(~country) + 
-  ggtitle("Distribution of scores for top 5 countries")
 
-Mean_prices <- aggregate(wine_complete$price, by= list(Country = wine_complete$country), FUN = mean)
-Mean_prices$Country <- as.character(Mean_prices$Country)
-Mean_prices_T5 <- filter(Mean_prices, Country == top_5_countries)
-
-Mean_scores <- aggregate(wine_complete$points, by= list(Country = wine_complete$country), FUN = mean) %>%
-Mean_scores <- Mean_scores[filter(Mean_scores$Country == top_5_countries),]
-Median_prices <- aggregate(wine_complete$price, by= list(Country = wine_complete$country), FUN = median)
+Mean_scores <- aggregate(wine_complete$points, by= list(Country = wine_complete$country), FUN = mean)
 Median_scores <- aggregate(wine_complete$points, by= list(Country = wine_complete$country), FUN = median)
 
-ggplot(wine_complete, aes(x = points)) + 
-  geom_histogram(binwidth = 1) + 
-  ggtitle("Distribution of points") +
-  geom_vline(xintercept = Mean_scores$x, show.legend = Mean_scores$Country)
-
-# ANOVA for countries and score
+ggplot(Mean_scores, aes(x = Country, y = x, fill = "#bcbcbc")) + 
+  geom_col() +
+  coord_flip() +
+  ggtitle("Mean scores amongst the countries")
+  
+  
+ggplot(Median_scores, aes(x = Country, y = x, fill = "#cccccc")) +
+  geom_col() +
+  coord_flip() +
+  ggtitle("Median scores amongst the countries")
