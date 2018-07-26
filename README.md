@@ -71,7 +71,8 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
       
 #Week 4
 * In class
-
+  1. Further Exploratory Data Analysis - Correlations, T-test and ANOVA
+  2. Linear Regression Models 
 
 * At home
 
