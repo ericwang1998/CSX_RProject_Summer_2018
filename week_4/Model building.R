@@ -1,11 +1,4 @@
-# So previously we looked at the following factors:
-#   1) Price Range
-#   2) Average cost for 2
-#   3) Whether there is online delivery
-#   4) Number of votes
 
-# So we shall build our model based on those 4 factors.
-# Starting with votes, as there was a high correlation
 
 # So let us load in the data from the previous exercise. 
 library(magrittr)
@@ -47,4 +40,37 @@ m2 <- lm(Aggregate.rating ~ Price.range + Average.Cost.for.two- 1,
          data = Delhi_food)
 coefplot(m2, xlab = "Estimated Value", ylab = "Regression coefficient", title = "Response Variable = Aggregate Rating")
 
-fit_m2 <- data.frame(Delhi_food[, c(2, 12, 13)], fitted = fitted(m2))
+# shows that price range 4 has the greatest variation when it comes to affecting the aggregate rating?
+# and that price range 3 will have the greatest effect on the aggregate rating.
+
+fit_m2 <- data.frame(Delhi_food[, c(14, 17, 18)], fitted = fitted(m2), resid = resid(m2),
+          infl = influence(m2)$hat )
+
+# Checking the model fit
+ggplot(data = fit_m2, aes(x = Aggregate.rating, group = Price.range )) +
+  stat_density(geom = 'path', position = 'identity') +
+  stat_density(geom = 'path', position = 'identity', aes(x = fitted)) +
+  geom_vline(xintercept = c(with(Delhi_food, tapply(Aggregate.rating,Price.range, mean))), linetype = 'dotted')+
+  facet_grid(Price.range ~ .) +
+  scale_x_continuous(breaks = seq(200, 900, by = 100))+
+  labs(x = 'Aggregate Rating', y = 'Probability Density')
+
+
+# Checking the normal distribution assumption, which is false. hahaha.
+require(lattice)
+qqmath(~ scale(resid) | Price.range, data = fit_m2, type = c('p', 'g', 'r'),
+       xlab = 'Normal theoretical quantiles', ylab = 'Standard error', layout = c(2, 3),
+       pch = '.', cex = 2)
+
+
+# Drawing standard eror and predictor value plot. Also, checking for linear and equal distribution, which is false again.
+require(MASS)
+ggplot(data = fit_m2, aes(x = fitted, y = scale(resid), group = Price.range )) +
+  geom_point(pch = 20, size = 1) +
+  stat_smooth(method = 'rlm', se = F) +
+  facet_grid(Price.range ~ .) +
+  labs(x = 'Predictor value', y = 'Standard error')
+
+summary(influence(m2)$hat)
+
+theme_set(old)
