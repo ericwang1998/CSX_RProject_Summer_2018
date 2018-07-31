@@ -73,9 +73,9 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 * Class Assignments
   1. Further Exploratory Data Analysis - Correlations, T-test and ANOVA
     * Files
-      + [R script] (https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_4/Further EDA.R)
-      + [R Markdown] (https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_4/Further EDA.Rmd)
-      + [HTML file] (https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_4/Further EDA.html)
+      + [R script](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_4/Further_EDA.R)
+      + [R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_4/Further_EDA.Rmd)
+      + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_4/Further_EDA.html)
   
   2. Linear Regression Models 
     * Files
