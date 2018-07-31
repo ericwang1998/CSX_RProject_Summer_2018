@@ -10,7 +10,7 @@ require(ggpubr)
 library(ggmap)
 ```
 
-## 今天要来探讨的是在新德里的餐厅里，影响网路评分的因素。
+## 今天要來探討的是在新德里的餐廳裡，影響網路評分的因素。
 
 #### 我們先匯入資料，並看看我們的dataset長什麼樣子
 ```{r}
@@ -28,7 +28,7 @@ Delhi_food <- zomato %>%
 ```
 
 #### 我們來看看餐廳的分佈吧。
-```{r}
+```{r, message=FALSE}
 CountriesMap <- qmap("New Delhi", color = "bw", legend = "topleft")
 CountriesMap +
   geom_point(aes(x = Longitude, y = Latitude), 
@@ -54,7 +54,7 @@ print(median(Delhi_food$Aggregate.rating))
 ```{r}
 t.test(Aggregate.rating ~ Has.Online.delivery, data = Delhi_food)
 ```
-#### 從上述結果來看，我們可以說，有和沒有網路外送的餐廳的平均評差異是顯著的。（p 值少于 0.05）。  
+#### 從上述結果來看，我們可以說，**有和沒有網路外送的餐廳的平均評差異是顯著的**。（p 值少于 0.05）。  
 
 #### 我們現在再來看餐廳的價位是否會影響評價。我們以數據裡面，平均兩人餐花費的變數來代表價位吧。
 ```{r}
@@ -67,7 +67,7 @@ ggplot(Delhi_food, aes(x = Average.Cost.for.two, y = Aggregate.rating)) +
 Delhi_food %>%
 summarise(N = n(), r = cor(Aggregate.rating, Average.Cost.for.two, use = "pairwise.complete.obs", method = "spearman"))
 ```
-#### 哦。看起來還有點關聯哦。似乎越貴，評價越高哦。
+#### 哦。看起來還有點關聯哦。**似乎越貴，評價越高哦**。
 。  
 #### 我們再來看投票數吧，畢竟沒有被給評分的餐廳當然會零分。
 ```{r}
@@ -80,7 +80,8 @@ ggplot(Delhi_food, aes(x = Votes, y = Aggregate.rating)) +
 Delhi_food %>%
   summarise(N = n(), r = cor(Aggregate.rating, Votes, use = "pairwise.complete.obs", method = "spearman"))
 ```
-#### 哦！有蠻大的關聯度喲！哦！投票數和評分有蠻大的關聯度喲！
+
+#### 哦！有蠻大的關聯度喲！哦！**投票數和評分似乎有蠻大的關聯度喲**！
 
 #### 我接下來再來看另一個價位的變數:1是檔次最低的一組餐廳，4是檔次最高的一組。
 ```{r}
@@ -112,7 +113,7 @@ ggline(Delhi_food, x = "Price.range", y = "Aggregate.rating",
 price_anova <- aov(Aggregate.rating ~ Price.range, data = Delhi_food)
 summary(price_anova)
 ```
-#### 於是我們可以說不同價位的餐廳評分有明顯的差異.
+#### 於是我們可以說**不同價位的餐廳評分有明顯的差異**.
 #### 可是每組之間的差異都不一樣，所以我們必須繼續鑽研下去.
 ```{r}
 TukeyHSD(price_anova)
@@ -134,4 +135,5 @@ price_mod = data.frame(Fitted = fitted(price_mod1),
 ggplot(price_mod, aes(Fitted, Residuals, colour = Treatment)) +
   geom_point()
 ```
-#### 我们可以看到group3 和group4 的residual 跟fitted 的差异都不大。於是我們可以說越高檔次的餐廳，越有可能得到好評，但效應會逐漸遞減。
+  
+#### 我们可以看到group3 和group4 的residual 跟fitted 的差异都不大。於是我們可以說**越高檔次的餐廳，越有可能得到好評，但效應會逐漸遞減。**
