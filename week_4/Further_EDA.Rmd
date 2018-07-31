@@ -62,7 +62,7 @@ ggplot(Delhi_food, aes(x = Average.Cost.for.two, y = Aggregate.rating)) +
   geom_point(colour = "red")
 ```
 
-####我們先用correlation來看看兩個變數是否有關聯。必須用spearman，因為兩個變數的分佈都不是normal distribution。
+#### 我們先用correlation來看看兩個變數是否有關聯。必須用spearman，因為兩個變數的分佈都不是normal distribution。
 ```{r}
 Delhi_food %>%
 summarise(N = n(), r = cor(Aggregate.rating, Average.Cost.for.two, use = "pairwise.complete.obs", method = "spearman"))
