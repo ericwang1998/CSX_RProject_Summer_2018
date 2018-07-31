@@ -1,0 +1,137 @@
+---
+title: "Further EDA"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(magrittr)
+library(dplyr)
+require(ggpubr)
+library(ggmap)
+```
+
+## 今天要来探讨的是在新德里的餐厅里，影响网路评分的因素。
+
+#### 我們先匯入資料，並看看我們的dataset長什麼樣子
+```{r}
+zomato <- read.csv("~/Github/CSX_RProject_Summer_2018/week_4/zomato-restaurants-data/zomato.csv")
+summary(zomato)
+```
+
+#### 我們可以看到佔大多數的餐廳是位於新德里。為了去除不同文化和習俗的變素，我們就只專注於新德里的餐廳。
+```{r}
+zomato$City <- as.character(zomato$City)
+
+Delhi_food <- zomato %>%
+  ungroup() %>%
+  filter(., City == "New Delhi")
+```
+
+#### 我們來看看餐廳的分佈吧。
+```{r}
+CountriesMap <- qmap("New Delhi", color = "bw", legend = "topleft")
+CountriesMap +
+  geom_point(aes(x = Longitude, y = Latitude), 
+             data = Delhi_food)
+```
+
+#### 我們先來看看網路外送會不會影響總評分。我們來看看在有沒有網路外送会不会有不同的總評分分佈。
+```{r}
+ggplot(Delhi_food, aes(x = Aggregate.rating)) + 
+  geom_histogram(fill = "turquoise3") +
+  facet_wrap(~Has.Online.delivery) +
+  geom_vline(aes(xintercept = mean(Delhi_food$Aggregate.rating), linetype = "Mean")) +
+  geom_vline(aes(xintercept = median(Delhi_food$Aggregate.rating), linetype = "Median"))
+```
+```{r}
+print(mean(Delhi_food$Aggregate.rating))
+print(median(Delhi_food$Aggregate.rating))
+```
+#### 看起來沒有外送很有可能會被給0分哦。
+#### 不過我們得將兩個變數放入t-test 才能下定論。
+#### *H0: 有沒有網路外送, 評分不受影響。*
+#### *H1: 有沒有網路外送，評分會受影響。*
+```{r}
+t.test(Aggregate.rating ~ Has.Online.delivery, data = Delhi_food)
+```
+#### 從上述結果來看，我們可以說，有和沒有網路外送的餐廳的平均評差異是顯著的。（p 值少于 0.05）。  
+
+#### 我們現在再來看餐廳的價位是否會影響評價。我們以數據裡面，平均兩人餐花費的變數來代表價位吧。
+```{r}
+ggplot(Delhi_food, aes(x = Average.Cost.for.two, y = Aggregate.rating)) +
+  geom_point(colour = "red")
+```
+
+####我們先用correlation來看看兩個變數是否有關聯。必須用spearman，因為兩個變數的分佈都不是normal distribution。
+```{r}
+Delhi_food %>%
+summarise(N = n(), r = cor(Aggregate.rating, Average.Cost.for.two, use = "pairwise.complete.obs", method = "spearman"))
+```
+#### 哦。看起來還有點關聯哦。似乎越貴，評價越高哦。
+。  
+#### 我們再來看投票數吧，畢竟沒有被給評分的餐廳當然會零分。
+```{r}
+ggplot(Delhi_food, aes(x = Votes, y = Aggregate.rating)) +
+  geom_point(colour = "blue")
+```
+
+#### 我們再來跑一下correlation！
+```{r}
+Delhi_food %>%
+  summarise(N = n(), r = cor(Aggregate.rating, Votes, use = "pairwise.complete.obs", method = "spearman"))
+```
+#### 哦！有蠻大的關聯度喲！哦！投票數和評分有蠻大的關聯度喲！
+
+#### 我接下來再來看另一個價位的變數:1是檔次最低的一組餐廳，4是檔次最高的一組。
+```{r}
+Delhi_food$Price.range <- factor(Delhi_food$Price.range, levels = c(1, 2, 3, 4))
+
+ggplot(data = Delhi_food, 
+       aes(x = Price.range, y = Aggregate.rating)) +
+  geom_jitter(fill = "red") +
+  geom_hline(yintercept = mean(Delhi_food$Aggregate.rating) , 
+             linetype = 1, colour = "red") +
+  labs(x = 'Price Range', y = 'Aggregate Rating') +
+  annotate(geom="text", label="mean", x=0.5, y=mean(Delhi_food$Aggregate.rating), vjust=-1, colour = "red")
+```
+
+#### 我們來看看每組的平均評分.
+```{r}
+tapply(Delhi_food$Aggregate.rating, Delhi_food$Price.range, mean)
+ggline(Delhi_food, x = "Price.range", y = "Aggregate.rating",
+  add = c("mean_se"),
+  order = c(1, 2, 3, 4),
+  ylab = "Aggregate Ratings", xlab = "Price Range") +
+  ggtitle("Mean ratings for the different price range restaurants")
+```
+
+#### 現在我們就來檢查：
+#### *H0: 不同價位的餐廳評分沒有明顯的差異。*
+#### *H1: 不同價位的餐廳評分有明顯的差異。*
+```{r}
+price_anova <- aov(Aggregate.rating ~ Price.range, data = Delhi_food)
+summary(price_anova)
+```
+#### 於是我們可以說不同價位的餐廳評分有明顯的差異.
+#### 可是每組之間的差異都不一樣，所以我們必須繼續鑽研下去.
+```{r}
+TukeyHSD(price_anova)
+```
+#### 所有組跟組之間的比較，可以看出除了4-3的比較不顯著，(Confidence Interval 有0)，其他的比較都很顯著。 (Confidence Interval 沒有0)。
+
+#### 接下來我們試著把以上的結果視覺化吧
+```{r}
+price_mod1 <- lm(Aggregate.rating ~ Price.range, data = Delhi_food)
+summary(price_mod1)
+
+anova(price_mod1)
+confint(price_mod1)
+
+price_mod = data.frame(Fitted = fitted(price_mod1),
+                       Residuals = resid(price_mod1),
+                       Treatment = Delhi_food$Price.range)
+
+ggplot(price_mod, aes(Fitted, Residuals, colour = Treatment)) +
+  geom_point()
+```
+#### 我们可以看到group3 和group4 的residual 跟fitted 的差异都不大。於是我們可以說越高檔次的餐廳，越有可能得到好評，但效應會逐漸遞減。
