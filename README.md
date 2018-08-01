@@ -88,6 +88,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   1. Keynote presentation by Mr. Tony Song
   2. Learning Shiny by R studio. 
     * Files
-      + [Shiny App](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_5/app.R)
+      + [R file](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_5/app.R)
+      + [Shiny app](https://ericwang6272.shinyapps.io/MyShiny/)
 
 * At home
