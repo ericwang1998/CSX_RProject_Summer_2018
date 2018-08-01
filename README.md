@@ -8,7 +8,7 @@ I am enrolling in Singapore Management University, majoring in information syste
 Been trying to pick up coding on my own, but find myself like a headless chicken. Did some Lynda.com courses on R but still glad to be able to attend a course that can provide me with more guidance and direction.
 
 ## Progress Report
-#Week 1
+### Week 1
 * In class
   1. Installation and introduction
   2. Getting to know GitHub
@@ -32,7 +32,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   + [R Markdown File](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_1/HW/hw4_tidyverse.Rmd)
   5. Read the slides for the next lesson. 
 
-#Week 2
+### Week 2
 * In class
   1. Understanding data visualisation
   2. Data visualisation exercise (Class activity)
@@ -53,7 +53,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
   2. Exploring ggmap
   3. Read Prelesson articles.
  
-#Week 3
+### Week 3
 * In class
   1. Exploratory Data Analysis
     * Files
@@ -69,7 +69,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
       + [R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_3/songs_data/TFIDF_PCA_Kmeans.Rmd)
       + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_3/songs_data/TFIDF_PCA_Kmeans.html)
       
-#Week 4
+### Week 4
 * Class Assignments
   1. Further Exploratory Data Analysis - Correlations, T-test and ANOVA
     * Files
@@ -83,7 +83,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
       + [R Markdown](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_4/Linear_models.Rmd)
       + [HTML file](https://ericwang1998.github.io/CSX_RProject_Summer_2018/week_4/Linear_models.html)
 
-#Week 5
+### Week 5
 * In class
   1. Keynote presentation by Mr. Tony Song
   2. Learning Shiny by R studio. 
