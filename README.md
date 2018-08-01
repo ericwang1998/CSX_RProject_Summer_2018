@@ -85,7 +85,9 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 
 #Week 5
 * In class
-  1. Learning Shiny
-  2. 
+  1. Keynote presentation by Mr. Tony Song
+  2. Learning Shiny by R studio. 
+    * Files
+      + [Shiny App](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_5/app.R)
 
 * At home
