@@ -10,9 +10,6 @@ library(dplyr)
 
 
 
-# Leaflet bindings are a bit slow; for now we'll just sample to compensate
-
-set.seed(100)
 
 zipdata <- allzips[sample.int(nrow(allzips), 10000),]
 
@@ -46,7 +43,7 @@ function(input, output, session) {
         
       ) %>%
       
-      setView(lng = -93.85, lat = 37.45, zoom = 4)
+      setView(lng = 37, lat = 0, zoom = 4)
     
   })
   
@@ -142,7 +139,7 @@ function(input, output, session) {
     
     
     
-    if (colorBy == "superzip") {
+    if (Grouped by == "Grouped by Sector") {
       
       # Color and palette are treated specially in the "superzip" case, because
       
