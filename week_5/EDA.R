@@ -11,8 +11,8 @@ kiva_region <- read.csv("~/GitHub/CSX_RProject_Summer_2018/week_5/data/loan_them
 missmap(kiva_loan, col = c("grey", "black"), legend = FALSE, main = "Missing values map")
 
 kiva_loan <- kiva_loan[complete.cases]
-
-kiva_loan <- kiva_loan[!(kiva_loan$currency == "2014-05-26 05:25:33+00:00"|
+# remove errors in data entry
+kiva_better <- kiva_loan[!(kiva_loan$currency == "2014-05-26 05:25:33+00:00"|
                            kiva_loan$currency == "2015-11-23 04:52:48+00:00"|
                            kiva_loan$currency == "Webuye"|
                            kiva_loan$currency == "#Woman owned Biz"|
@@ -24,22 +24,29 @@ kiva_loan <- kiva_loan[!(kiva_loan$currency == "2014-05-26 05:25:33+00:00"|
                            kiva_loan$currency == "42587"|
                            kiva_loan$currency == "42695"),]
 
-kiva_loan <- kiva_loan[!(kiva_loan$country == "#Single Parent"),]
-str(kiva_loan)
-kiva_loan <- kiva_loan[,2:21]
-kiva_loan$currency <- as.factor(kiva_loan$currency)
+kiva_better <- kiva_better[!(kiva_better$country == "#Single Parent"),]
+str(kiva_better)
+kiva_better <- kiva_better[,2:21]
+kiva_better$currency <- as.factor(kiva_better$currency)
 
-if (kiva_loan$currency == ALL) {
-  kiva_loan$funded_amount * 0.0092
-  kiva_loan$loan_amount * 0.0092 }
-  if (kiva_loan$currency == AMD) {
-    kiva_loan$funded_amount * 0.0021
-    kiva_loan$funded_amount * 0.0021}
-    if(kiva_loan$currency == AZN) {
-      kiva_loan$funded_amount * 0.59
-      kiva_loan$funded_amount * 0.59}
-      if(kiva_loan$currency == BIF) {
-        kiva_loan$funded_amount * 0.000568
-        kiva_loan$funded_amount * 0.000568}
+if (kiva_better$currency == "ALL") {
+  kiva_better$funded_amount * 0.0092
+  kiva_better$loan_amount * 0.0092
+} else if (kiva_better$currency == "AMD") {
+    kiva_better$funded_amount * 0.0021
+    kiva_better$loan_amount * 0.0021
+} else if(kiva_better$currency == "AZN") {
+    kiva_better$funded_amount * 0.59
+    kiva_better$loan_amount * 0.59
+} else if(kiva_better$currency == "BIF") {
+    kiva_better$funded_amount * 0.000568
+    kiva_better$loan_amount * 0.000568
+} else if (kiva_better$currency == "PK") {
+    kiva_better$funded_amount * 0.0081
+    kiva_better$loan_amount * 0.0081
+} else {
+    kiva_better$funded_amount * 1
+    kiva_better$funded_amount * 1
+}
     
   

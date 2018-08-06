@@ -16,7 +16,6 @@ ui <- bootstrapPage(
                 checkboxInput("legend", "Show legend", TRUE)
   )
 )
-
 server <- function(input, output, session) {
   
   # Reactive expression for the data subsetted to what the user selected
@@ -68,7 +67,4 @@ server <- function(input, output, session) {
   })
 }
 
-
-# Run the application 
-shinyApp(ui = ui, server = server)
-
+shinyApp(ui, server)
