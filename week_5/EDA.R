@@ -48,5 +48,3 @@ if (kiva_better$currency == "ALL") {
     kiva_better$funded_amount * 1
     kiva_better$funded_amount * 1
 }
-    
-  
