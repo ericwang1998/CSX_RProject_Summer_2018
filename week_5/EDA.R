@@ -10,7 +10,7 @@ kiva_region <- read.csv("~/GitHub/CSX_RProject_Summer_2018/week_5/data/loan_them
 
 missmap(kiva_loan, col = c("grey", "black"), legend = FALSE, main = "Missing values map")
 
-kiva_loan <- kiva_loan[complete.cases]
+kiva_loan <- kiva_loan[complete.cases(kiva_loan)]
 # remove errors in data entry
 kiva_better <- kiva_loan[!(kiva_loan$currency == "2014-05-26 05:25:33+00:00"|
                            kiva_loan$currency == "2015-11-23 04:52:48+00:00"|
@@ -29,6 +29,8 @@ str(kiva_better)
 kiva_better <- kiva_better[,2:21]
 kiva_better$currency <- as.factor(kiva_better$currency)
 
+
+for (i in kiva_better$currency){
 if (kiva_better$currency == "ALL") {
   kiva_better$funded_amount * 0.0092
   kiva_better$loan_amount * 0.0092
@@ -47,4 +49,5 @@ if (kiva_better$currency == "ALL") {
 } else {
     kiva_better$funded_amount * 1
     kiva_better$funded_amount * 1
+}
 }
