@@ -96,4 +96,4 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 ### Week 6
 * Final Project
   1. [Shiny app](http://ericwang6272.shinyapps.io/final-report)
-  2. [Source code](https://github.com/ericwang1998/CSX_RProject_Summer_2018/week_6)
+  2. [Source code](https://github.com/ericwang1998/CSX_RProject_Summer_2018/week_6/)
