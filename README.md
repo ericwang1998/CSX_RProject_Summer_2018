@@ -95,5 +95,7 @@ Been trying to pick up coding on my own, but find myself like a headless chicken
 
 ### Week 6
 * Final Project
+  * In collaboration with [ruxiuhsiao](https://github.com/ruxiuhsiao) and [peiyingwe](https://github.com/peiyingwu0705).
   1. [Shiny app](https://ruxiuhsiao.shinyapps.io/final_report/)
-  2. [Source code](https://github.com/ericwang1998/CSX_RProject_Summer_2018/tree/master/week_6)
+  2. [PPT](https://github.com/ericwang1998/CSX_RProject_Summer_2018/blob/master/week_6/Kiva%20Presentation.pdf)
+  3. [Source code](https://github.com/ericwang1998/CSX_RProject_Summer_2018/tree/master/week_6)
